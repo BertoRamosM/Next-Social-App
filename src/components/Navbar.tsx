@@ -72,9 +72,9 @@ const Navbar = () => {
             <UserButton />
           </SignedIn>
           <SignedOut>
-            <div className="cursor-pointer flex gap-2">
+            <div className="cursor-pointer flex gap-2 items-center text-xs">
               <LoginIcon />
-              <Link href="/login">Login / Register</Link>
+              <Link href="/sign-in">Login / Register</Link>
             </div>
           </SignedOut>
         </ClerkLoaded>
