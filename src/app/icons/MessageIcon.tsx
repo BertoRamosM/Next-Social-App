@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HomeIcon = () => {
+const MessageIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,14 +12,13 @@ const HomeIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="icon icon-tabler icons-tabler-outline icon-tabler-home"
+      className="icon icon-tabler icons-tabler-outline icon-tabler-messages"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+      <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
+      <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
     </svg>
   );
 }
 
-export default HomeIcon
+export default MessageIcon
