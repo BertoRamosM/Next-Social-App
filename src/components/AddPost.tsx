@@ -8,7 +8,7 @@ import AddEvent from "@/app/icons/AddEvent";
 
 const AddPost = () => {
   return (
-    <div className="p-4 bg-white rounded-lg flex gap-4 justify-between text-sm">
+    <div className="p-4 bg-white shadow-md rounded-lg flex gap-4 justify-between text-sm">
       <Image
         src={Avatar}
         alt="user avatar"
