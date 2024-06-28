@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Thumb = () => {
+const ShareIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,12 +12,12 @@ const Thumb = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="icon icon-tabler icons-tabler-outline icon-tabler-thumb-up"
+      className="icon icon-tabler icons-tabler-outline icon-tabler-share-3"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" />
+      <path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z" />
     </svg>
   );
 }
 
-export default Thumb
+export default ShareIcon
