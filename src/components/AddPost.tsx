@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import React from 'react'
-import Avatar from "../images/avatar.webp"
-import Emoji from "../images/emoji.webp"
-import AddImage from '@/app/icons/AddImage'
-import AddVideo from '@/app/icons/AddVideo'
-import AddEvent from '@/app/icons/AddEvent'
+import Image from "next/image";
+import React from "react";
+import Avatar from "../images/avatar.webp";
+import Emoji from "../images/emoji.webp";
+import AddImage from "@/app/icons/AddImage";
+import AddVideo from "@/app/icons/AddVideo";
+import AddEvent from "@/app/icons/AddEvent";
 
 const AddPost = () => {
   return (
@@ -34,29 +34,25 @@ const AddPost = () => {
           />
         </div>
 
-        <div className='flex gap-4'>
-          <div className="flex items-center gap-4 mt-4 text-gray-400">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <AddImage />
-              Photo
-            </div>
+        <div className="flex items-center gap-4 mt-4 text-gray-400 flex-wrap">
+          <div className="flex items-center gap-2 cursor-pointer">
+            <AddImage />
+            Photo
           </div>
-          <div className="flex items-center gap-4 mt-4 text-gray-400">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <AddVideo />
-              Video
-            </div>
+
+          <div className="flex items-center gap-2 cursor-pointer">
+            <AddVideo />
+            Video
           </div>
-          <div className="flex items-center gap-4 mt-4 text-gray-400">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <AddEvent />
-              Event
-            </div>
+
+          <div className="flex items-center gap-2 cursor-pointer">
+            <AddEvent />
+            Event
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default AddPost
+export default AddPost;
