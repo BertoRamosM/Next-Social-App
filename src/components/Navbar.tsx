@@ -2,15 +2,14 @@
 import Link from 'next/link';
 import React from 'react'
 import MobileMenu from './MobileMenu';
-import Image from 'next/image';
 import HomeIcon from '@/app/icons/HomeIcon';
 import StoriesIcon from '@/app/icons/StoriesIcon';
 import FriendsIcon from '@/app/icons/FriendsIcon';
 import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import LoginIcon from '@/app/icons/LoginIcon';
-import UserIcon from '@/app/icons/UserIcon';
 import MessageIcon from '@/app/icons/MessageIcon';
 import BellIcon from '@/app/icons/BellIcon';
+import SearchIcon from '@/app/icons/SearchIcon';
 
 const Navbar = () => {
   return (
@@ -21,7 +20,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="hidden md:flex w-[50%] text-sm">
+      <div className="hidden md:flex w-[50%] text-sm items-center justify-between">
         <div className="flex gap-6 text-gray-600">
           <Link
             href="#"
@@ -45,6 +44,11 @@ const Navbar = () => {
             <span>Stories</span>
           </Link>
         </div>
+        <div className="hidden xl:flex p-2 bg-slate-100 items-center rounded-xl">
+          <input type="text" placeholder='Search...'
+            className='bg-transparent outline-none' />
+          <SearchIcon />
+        </div>
       </div>
 
       <div className="w-[30%] flex items-center gap-4 xl:gap-8 justify-end">
@@ -61,7 +65,7 @@ const Navbar = () => {
         <ClerkLoaded>
           <SignedIn>
             <div className="cursor-pointer">
-              <UserIcon />
+              <FriendsIcon />
             </div>
             <div className="cursor-pointer">
               <MessageIcon />
