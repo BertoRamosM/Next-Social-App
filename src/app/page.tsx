@@ -22,7 +22,7 @@ const Homepage = () => {
 
 
 
-      <div className="hidden lg:block w-[30%] ">
+      <div className="hidden lg:block w-[50%] ">
         <RightMenu />
       </div>
     </div>

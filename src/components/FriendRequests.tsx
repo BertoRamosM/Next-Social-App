@@ -16,7 +16,7 @@ const FriendRequests = () => {
         </Link>
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
             src={Martial2}
@@ -28,7 +28,41 @@ const FriendRequests = () => {
           <span className="font-semibold">Rocky Gomez</span>
         </div>
 
-        <div className="flex justify-end gap-3">
+        <div className="flex justify-end gap-1">
+          <Tick />
+          <Cross />
+        </div>
+      </div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Image
+            src={Martial2}
+            alt="user avatar"
+            width={40}
+            height={40}
+            className="rounded-full object-cover w-10 h-10"
+          />
+          <span className="font-semibold">Rocky Gomez</span>
+        </div>
+
+        <div className="flex justify-end gap-1">
+          <Tick />
+          <Cross />
+        </div>
+      </div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Image
+            src={Martial2}
+            alt="user avatar"
+            width={40}
+            height={40}
+            className="rounded-full object-cover w-10 h-10"
+          />
+          <span className="font-semibold">Rocky Gomez</span>
+        </div>
+
+        <div className="flex justify-end gap-1">
           <Tick />
           <Cross />
         </div>
