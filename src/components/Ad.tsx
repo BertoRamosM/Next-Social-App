@@ -35,8 +35,14 @@ const Ad = ({size}: {size: 'sm' | 'md' | 'lg' }) => {
             width={24}
             className="object-cover rounded-full w-6 h-6"
           />
-          <span className='text-red-500 font-medium'>Mars Magic Soda</span>
+          <span className="text-red-500 font-medium">Mars Magic Soda</span>
         </div>
+
+        <p className={size === 'sm' ? 'text-xs' : 'text-sm'}>
+        Taste Out of This World!
+        </p>
+
+        <button className='bg-gray-200 text-gray-600 p-2 text-xs rounded-lg'>Buy now!</button>
       </div>
     </div>
   );
