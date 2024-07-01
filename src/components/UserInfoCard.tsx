@@ -1,3 +1,5 @@
+import AddEvent from '@/app/icons/AddEvent';
+import LinkIcon from '@/app/icons/LinkIcon';
 import LocationIcon from '@/app/icons/LocationIcon';
 import SchoolIcon from '@/app/icons/SchoolIcon';
 import WorkIcon from '@/app/icons/WorkIcon';
@@ -44,6 +46,24 @@ const UserInfoCard = ({ userId }: { userId:string }) => {
             Works at <b>New Rock</b>
           </span>
         </div>
+        <div className="flex items-center justify-between">
+          <div className="flex gap-1 items-center">
+            <LinkIcon />
+            <Link
+              href="https://albertoramos.dev/"
+              className="text-red-500 font-medium"
+            >
+              alberto.ramos
+            </Link>
+          </div>
+
+          <div className="flex gap-1 items-center">
+            <AddEvent />
+            <span className='text-xs'>Joined August 2074</span>
+          </div>
+        </div>
+        <button className='bg-red-500 text-white text-sm rounded-md p-2'>Follow</button>
+        <span className='text-red-800 self-end text-xs cursor-pointer'>Block User</span>
       </div>
     </div>
   );
