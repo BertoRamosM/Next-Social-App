@@ -40,10 +40,10 @@ const Birdthdays = () => {
         <div>
           <CakeIcon />
         </div>
-        <div className='flex flex-col gap-2 justify-center'>
+        <Link href="" className='flex flex-col gap-2 justify-center'>
           <span className='font-bold'>Upcoming Birthdays</span>
-          <span>See other upcoming Birthdays</span>
-        </div>
+          <span className='text-gray-700'>See other 16 upcoming Birthdays</span>
+        </Link>
       </div>
     </div>
   );
