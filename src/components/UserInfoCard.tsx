@@ -18,8 +18,8 @@ const UserInfoCard = ({ userId }: { userId:string }) => {
 
       <div className="flex flex-col gap-4 text-gray-600">
         <div className="flex items-center gap-2">
-          <span className="text-xl text-black">Rylan Roderick</span>
-          <span className="text-sm">Rylan52</span>
+          <span className="text-xl text-black">Ricardo Mars</span>
+          <span className="text-sm">Rich22</span>
         </div>
         <p>
           🌌👽 Meet Rylan Roderick, the coolest Martian on the block! 🌟 📸
