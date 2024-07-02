@@ -9,11 +9,13 @@ import AlbumsIcon from '@/app/icons/AlbumsIcon';
 import VideoIcon from '@/app/icons/VideoIcon';
 import NewsIcon from '@/app/icons/NewsIcon';
 import CourseIcon from '@/app/icons/CourseIcon';
+import SettingsIcon from '@/app/icons/SettingsIcon';
+import Ad from './Ad';
 
 const LeftMenu = ({type}:{type:'home'|'profile'}) => {
   return (
     <div className="flex flex-col gap-6">
-      {type === "home" && <ProfileCard />}
+      {type === "profile" && <ProfileCard />}
       <div className=" p-2 bg-white rounded-lg shadow-md text-sm text-gray-600 flex flex-col gap-2">
         <Link
           href="/"
@@ -91,11 +93,11 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           href="/"
           className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
         >
-          <PostsIcon />
-          <span>My posts</span>
+          <SettingsIcon />
+          <span>Settings</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
       </div>
+      <Ad size='sm'/>
     </div>
   );
 }

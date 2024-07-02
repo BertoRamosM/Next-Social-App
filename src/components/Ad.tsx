@@ -5,7 +5,7 @@ import Dots from '@/app/icons/Dots';
 
 const Ad = ({size}: {size: 'sm' | 'md' | 'lg' }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md text-sm">
+    <div className="p-4 bg-white rounded-lg shadow-md text-sm text-pretty">
       <div className="flex items-center justify-between text-gray-700 font-medium">
         <span className="">Sponsored Ads</span>
         <Dots />
@@ -38,11 +38,13 @@ const Ad = ({size}: {size: 'sm' | 'md' | 'lg' }) => {
           <span className="text-red-500 font-medium">Mars Magic Soda</span>
         </div>
 
-        <p className={size === 'sm' ? 'text-xs' : 'text-sm'}>
-        Taste Out of This World!
+        <p className={size === "sm" ? "text-xs" : "text-sm"}>
+          100% Mars slug, Taste Out of This World!
         </p>
 
-        <button className='bg-gray-200 text-gray-600 p-2 text-xs rounded-lg'>Buy now!</button>
+        <button className="bg-gray-200 text-gray-600 p-2 text-xs rounded-lg">
+          Buy now!
+        </button>
       </div>
     </div>
   );
