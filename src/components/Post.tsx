@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Martial1 from "../images/Martial1.webp";
 import Dots from "@/app/icons/Dots";
-import Scene1 from "../images/scene1.webp"
+import Land1 from "../images/land1.webp";
 import Thumb from "@/app/icons/Thumb";
 import Comment from "@/app/icons/Comment";
 import ShareIcon from "@/app/icons/ShareIcon";
@@ -22,14 +22,14 @@ const Post = () => {
             alt="user image"
             className="w-10 h-10 rounded-full"
           />
-          <span className="font-medium">Rowan Martial</span>
+          <span className="font-medium">Rowan Martian</span>
         </div>
         <Dots />
       </div>
 
       <div className="w-full min-h-96 relative">
         <Image
-          src={Scene1}
+          src={Land1}
           alt="scene image"
           fill
           className="rounded-md object-cover"

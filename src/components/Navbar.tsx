@@ -16,7 +16,7 @@ const Navbar = () => {
     <div className="h-24 flex items-center justify-between">
       <div className="text-red-500 md:hidden lg:block w-20%]">
         <Link href={"/"} className=" font-bold text-xl">
-          MARS<span className="border-2 border-red-500">ECHO</span>
+          MARS<span className="border-2 border-red-500 rounded-lg p-1">ECHO</span>
         </Link>
       </div>
 
