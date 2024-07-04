@@ -8,7 +8,7 @@ const Tick = () => {
       height="20"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="red"
+      stroke="green"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

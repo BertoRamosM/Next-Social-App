@@ -16,88 +16,88 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
   return (
     <div className="flex flex-col gap-6">
       {type === "profile" && <ProfileCard />}
-      <div className=" p-2 bg-white rounded-lg shadow-md text-sm text-gray-600 flex flex-col gap-2">
+      <div className=" p-2 bg-slate-950 rounded-lg shadow-md text-sm text-white flex flex-col gap-2">
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <PostsIcon />
           <span>My posts</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
+        <hr className="border-t-1 border-green-400 w-36 self-center" />
 
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <ActivityIcon />
           <span>Activity</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
+        <hr className="border-t-1 border-green-400 w-36 self-center" />
 
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <MarketIcon />
           <span>Marketplace</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
+        <hr className="border-t-1 border-green-400 w-36 self-center" />
 
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <EventsIcon />
           <span>Events</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
+        <hr className="border-t-1 border-green-400 w-36 self-center" />
 
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <AlbumsIcon />
           <span>Albums</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
+        <hr className="border-t-1 border-green-400 w-36 self-center" />
 
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <VideoIcon />
           <span>Videos</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
+        <hr className="border-t-1 border-green-400 w-36 self-center" />
 
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <NewsIcon />
           <span>News</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
+        <hr className="border-t-1 border-green-400 w-36 self-center" />
 
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <CourseIcon />
           <span>Courses</span>
         </Link>
-        <hr className="border-t-1 border-gray-50 w-36 self-center" />
+        <hr className="border-t-1 border-green-400 w-36 self-center" />
 
         <Link
           href="/"
-          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100"
+          className="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-700"
         >
           <SettingsIcon />
           <span>Settings</span>
         </Link>
       </div>
-      <Ad size='sm'/>
+      <Ad size="sm" />
     </div>
   );
 }

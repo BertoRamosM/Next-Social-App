@@ -7,8 +7,8 @@ import Thumb from "@/app/icons/Thumb";
 
 const Comments = () => {
   return (
-    <div>
-      <div className="flex items-center gap-4">
+    <div className="bg-slate-800 p-2 rounded-lg">
+      <div className="flex items-center gap-4 ">
         <Image
           src={Avatar}
           alt="user avatar"
@@ -16,11 +16,11 @@ const Comments = () => {
           height={32}
           className="w-8 h-8 rounded-full"
         />
-        <div className="flex flex-1 items-center justify-between bg-slate-100 rounded-xl text-sm px-6 py-2 w-full">
+        <div className="flex flex-1 items-center justify-between bg-slate-100 rounded-xl text-sm px-6 py-2 w-full bg-transparent border-2 border-white/30">
           <input
             type="text"
             placeholder="Write a comment..."
-            className="bg-transparent outline-none flex-1"
+            className=" outline-none flex-1 bg-transparent"
           />
           <Image
             src={Emoji}
@@ -49,11 +49,11 @@ const Comments = () => {
               expedita, tempora rerum et consequatur sed. Quam qui a quaerat
               temporibus architecto corrupti debitis quidem!
             </p>
-            <div className="flex items-center gap-8 text-xs text-gray-500">
+            <div className="flex items-center gap-8 text-xs text-gray-100">
               <div className="flex items-center gap-4 mt-2 ">
                 <Thumb />
                 <span className="text-gray-300 "> | </span>
-                <span className="text-gray-500">123 Likes</span>
+                <span className="text-gray-100">123 Likes</span>
                 <div>Reply</div>
               </div>
             </div>

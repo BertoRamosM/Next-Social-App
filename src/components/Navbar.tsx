@@ -16,12 +16,12 @@ const Navbar = () => {
     <div className="h-24 flex items-center justify-between">
       <div className="text-red-500 md:hidden lg:block w-20%]">
         <Link href={"/"} className=" font-bold text-xl">
-          MARS<span className="border-2 border-red-500 rounded-lg p-1">ECHO</span>
+          MARS<span className="border-2 border-green-500 rounded-lg p-1">ECHO</span>
         </Link>
       </div>
 
       <div className="hidden md:flex w-[50%] text-sm items-center justify-between">
-        <div className="flex gap-6 text-gray-600">
+        <div className="flex gap-6 text-white">
           <Link
             href="#"
             className="flex gap-2 hover:text-red-500 justify-center items-center "
@@ -44,9 +44,9 @@ const Navbar = () => {
             <span>Stories</span>
           </Link>
         </div>
-        <div className="hidden xl:flex p-2 bg-slate-100 items-center rounded-xl">
+        <div className="hidden xl:flex p-2 bg-slate-100 items-center rounded-xl bg-transparent border-2 border-white/30">
           <input type="text" placeholder='Search...'
-            className='bg-transparent outline-none' />
+            className=' outline-none bg-transparent' />
           <SearchIcon />
         </div>
       </div>

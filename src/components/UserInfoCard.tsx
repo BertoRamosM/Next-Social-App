@@ -8,17 +8,17 @@ import React from 'react'
 
 const UserInfoCard = ({ userId }: { userId:string }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md text-sm flex flex-col gap-4">
+    <div className="p-4 bg-slate-950 rounded-lg shadow-md text-sm flex flex-col gap-4">
       <div className=" flex items-center justify-between foont-md">
-        <span className="text-gray-500">User Information</span>
+        <span className="text-gray-100">User Information</span>
         <Link href="" className="text-red-500 text-xs">
           See all
         </Link>
       </div>
 
-      <div className="flex flex-col gap-4 text-gray-600">
+      <div className="flex flex-col gap-4 text-gray-100">
         <div className="flex items-center gap-2">
-          <span className="text-xl text-black">Ricardo Mars</span>
+          <span className="text-xl text-gray-200">Ricardo Mars</span>
           <span className="text-sm">Rich22</span>
         </div>
         <p>
@@ -59,11 +59,15 @@ const UserInfoCard = ({ userId }: { userId:string }) => {
 
           <div className="flex gap-1 items-center">
             <AddEvent />
-            <span className='text-xs'>Joined August 2074</span>
+            <span className="text-xs">Joined August 2074</span>
           </div>
         </div>
-        <button className='bg-red-500 text-white text-sm rounded-md p-2'>Follow</button>
-        <span className='text-red-800 self-end text-xs cursor-pointer'>Block User</span>
+        <button className="bg-red-500 text-white text-sm rounded-md p-2">
+          Follow
+        </button>
+        <span className="text-red-800 self-end text-xs cursor-pointer">
+          Block User
+        </span>
       </div>
     </div>
   );

@@ -8,9 +8,9 @@ import Cross from '@/app/icons/Cross';
 
 const FriendRequests = () => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md text-sm flex flex-col gap-4">
+    <div className="p-4 bg-slate-950 text-white rounded-lg shadow-md text-sm flex flex-col gap-4">
       <div className=" flex items-center justify-between foont-md">
-        <span className="text-gray-500">Friend requests</span>
+        <span className="text-white">Friend requests</span>
         <Link href="" className="text-red-500 text-xs">
           See all
         </Link>

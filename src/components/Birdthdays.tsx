@@ -9,9 +9,9 @@ import CakeIcon from '@/app/icons/CakeIcon';
 
 const Birdthdays = () => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md text-sm flex flex-col gap-4">
+    <div className="p-4 bg-slate-950 text-white rounded-lg shadow-md text-sm flex flex-col gap-4">
       <div className=" flex items-center justify-between foont-md">
-        <span className="text-gray-500">Birthdays</span>
+        <span className="text-white">Birthdays</span>
       </div>
 
       <div className="flex items-center justify-between">
@@ -29,19 +29,19 @@ const Birdthdays = () => {
         <div className="flex justify-end gap-1">
           <Link
             href=""
-            className="bg-red-500 text-white text-xs py-1 rounded-md px-2"
+            className="bg-red-500 text-black text-xs py-1 rounded-md px-2"
           >
             Celebrate
           </Link>
         </div>
       </div>
 
-      <div className="flex bg-red-100 gap-4 text-xs justify-center items-center p-4 rounded-lg">
+      <div className="flex bg-green-400 gap-4 text-xs justify-center items-center p-4 rounded-lg">
         <div>
           <CakeIcon />
         </div>
         <Link href="" className='flex flex-col gap-2 justify-center'>
-          <span className='font-bold'>Upcoming Birthdays</span>
+          <span className='font-bold text-black'>Upcoming Birthdays</span>
           <span className='text-gray-700'>See other 16 upcoming Birthdays</span>
         </Link>
       </div>

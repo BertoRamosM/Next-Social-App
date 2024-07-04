@@ -15,9 +15,9 @@ import Land6 from "../images/land6.webp";
 
 const UserMediaCard = ({ userId }: { userId:string }) => {
     return (
-      <div className="p-4 bg-white rounded-lg shadow-md text-sm flex flex-col gap-4">
+      <div className="p-4 bg-slate-950 rounded-lg shadow-md text-sm flex flex-col gap-4">
         <div className=" flex items-center justify-between font-md">
-          <span className="text-gray-500">User Media</span>
+          <span className="text-gray-100">User Media</span>
           <Link href="" className="text-red-500 text-xs">
             See all
           </Link>

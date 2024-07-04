@@ -5,7 +5,7 @@ import Dots from '@/app/icons/Dots';
 
 const Ad = ({size}: {size: 'sm' | 'md' | 'lg' }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md text-sm text-pretty">
+    <div className="p-4 bg-slate-950 text-white rounded-lg shadow-md text-sm text-pretty">
       <div className="flex items-center justify-between text-gray-700 font-medium">
         <span className="">Sponsored Ads</span>
         <Dots />
