@@ -25,17 +25,19 @@ const ProfileCard = async () => {
   })
   console.log(user)
 
+  if(!user) return null
+
   return (
     <div className="p-2 bg-white rounded-lg shadow-md text-sm flex flex-col gap-6">
       <div className="h-20 relative">
         <Image
-          src={Land}
+          src={user?.cover || '/no-cover.webp' }
           alt="user banner"
           fill
           className="rounded-md object-cover"
         />
         <Image
-          src={Avatar}
+          src={user?.avatar || 'no-avatar.webp'}
           alt="user avatar"
           width={48}
           height={48}
@@ -43,7 +45,7 @@ const ProfileCard = async () => {
         />
       </div>
       <div className="h-20 flex flex-col gap-2 items-center">
-        <span className="font-semibold">Ricardo Mars</span>
+        <span className="font-semibold">{(user.name && user.surname) ? user.name + " " + user.surname : user.username }</span>
         <div className="flex items-center gap-4">
           <div className="flex">
             <Image
@@ -69,7 +71,7 @@ const ProfileCard = async () => {
             />
           </div>
 
-          <span className='text-xs text-gray-500'>500 Followers</span>
+          <span className='text-xs text-gray-500'>{user._count.followers}</span>
         </div>
         <button className='bg-red-500 text-white text-xs p-2 rounded-md pb-2'>My profile</button>
       </div>
