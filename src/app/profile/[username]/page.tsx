@@ -1,20 +1,20 @@
-import Feed from '@/components/Feed';
-import LeftMenu from '@/components/LeftMenu';
-import RightMenu from '@/components/RightMenu';
-import Image from 'next/image';
-import React from 'react'
-import Avatar from "../../../images/avatar.webp"
-import Hero from "../../../images/land3.webp"
-import prisma from '@/lib/client';
-import { notFound } from 'next/navigation';
+import Feed from "@/components/Feed";
+import LeftMenu from "@/components/LeftMenu";
+import RightMenu from "@/components/RightMenu";
+import Image from "next/image";
+import React from "react";
+import Avatar from "../../../images/avatar.webp";
+import Hero from "../../../images/land3.webp";
+import prisma from "@/lib/client";
+import { notFound } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 const ProfilePage = async ({ params }: { params: { username: string } }) => {
-  
   const username = params.username;
 
   const user = await prisma.user.findFirst({
     where: {
-      username
+      username,
     },
     include: {
       _count: {
@@ -22,14 +22,35 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
           followers: true,
           followings: true,
           posts: true,
-        }
-      }
-    }
-  })
+        },
+      },
+    },
+  });
 
   //from nextjs navigation
-  if (!user) return notFound()
-  
+  if (!user) return notFound();
+
+  const { userId: currentUserId } = auth();
+
+  let isBlock;
+
+  if (currentUserId) {
+    const res = await prisma.block.findFirst({
+      where: {
+        blockerId: user.id,
+        blockedId: currentUserId,
+      },
+    });
+
+    if (res) {
+      isBlock = true;
+    } else {
+      isBlock = false;
+    }
+  }
+
+  if(!isBlock) return notFound()
+    
   return (
     <div className="flex gap-6 pt-6">
       <div className="hidden xl:block w-[20%]">
@@ -79,6 +100,6 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
       </div>
     </div>
   );
-}
+};
 
 export default ProfilePage;
