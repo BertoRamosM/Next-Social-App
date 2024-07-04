@@ -1,17 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import Land1 from "../images/land1.webp"
+import Land1 from "../../images/land1.webp"
 
-import Land2 from "../images/land2.webp";
+import Land2 from "../../images/land2.webp";
 
-import Land3 from "../images/land3.webp";
+import Land3 from "../../images/land3.webp";
 
-import Land4 from "../images/land4.webp"
+import Land4 from "../../images/land4.webp"
 
-import Land5 from "../images/land5.webp"
+import Land5 from "../../images/land5.webp"
 
-import Land6 from "../images/land6.webp";
+import Land6 from "../../images/land6.webp";
 import { User } from '@prisma/client';
 
 const UserMediaCard = ({ user }: { user: User }) => {

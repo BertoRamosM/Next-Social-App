@@ -1,7 +1,7 @@
 import React from "react";
-import Avatar from "../images/avatar.webp";
+import Avatar from "../../images/avatar.webp";
 import Image from "next/image";
-import Emoji from "../images/emoji.webp";
+import Emoji from "../../images/emoji.webp";
 import Dots from "@/app/icons/Dots";
 import Thumb from "@/app/icons/Thumb";
 

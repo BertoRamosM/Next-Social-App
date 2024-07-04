@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react'
-import Martial2 from "../images/Martial2.webp";
+import Martial2 from "../../images/Martial2.webp";
 import Image from 'next/image';
 import Tick from '@/app/icons/Tick';
 import Cross from '@/app/icons/Cross';

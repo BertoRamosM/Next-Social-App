@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React from 'react'
-import Avatar from "../images/avatar.webp"
-import Land from "../images/land4.webp"
+import Avatar from "../../images/avatar.webp"
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/client';
 

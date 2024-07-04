@@ -1,6 +1,4 @@
-import Feed from "@/components/Feed";
-import LeftMenu from "@/components/LeftMenu";
-import RightMenu from "@/components/RightMenu";
+import RightMenu from "@/components/rightMenu/RightMenu";
 import Image from "next/image";
 import React from "react";
 import Avatar from "../../../images/avatar.webp";
@@ -8,6 +6,8 @@ import Hero from "../../../images/land3.webp";
 import prisma from "@/lib/client";
 import { notFound } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
+import LeftMenu from "@/components/leftMenu/LeftMenu";
+import Feed from "@/components/feed/Feed";
 
 const ProfilePage = async ({ params }: { params: { username: string } }) => {
   const username = params.username;
@@ -49,7 +49,7 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
     }
   }
 
-  if(isBlock) return notFound()
+  if (isBlock) return notFound();
 
   return (
     <div className="flex gap-6 pt-6">

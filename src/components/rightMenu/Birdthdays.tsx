@@ -3,7 +3,7 @@ import Tick from '@/app/icons/Tick';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import Martial1 from "../images/Martial1.webp";
+import Martial1 from "../../images/Martial1.webp";
 import CakeIcon from '@/app/icons/CakeIcon';
 
 

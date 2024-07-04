@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfileCard from "../components/ProfileCard"
+
 import Link from 'next/link.js';
 import PostsIcon from '@/app/icons/PostsIcon';
 import ActivityIcon from '@/app/icons/ActivityIcon';
@@ -10,7 +10,9 @@ import VideoIcon from '@/app/icons/VideoIcon';
 import NewsIcon from '@/app/icons/NewsIcon';
 import CourseIcon from '@/app/icons/CourseIcon';
 import SettingsIcon from '@/app/icons/SettingsIcon';
-import Ad from './Ad';
+import ProfileCard from './ProfileCard';
+import Ad from '../Ad';
+
 
 const LeftMenu = ({type}:{type:'home'|'profile'}) => {
   return (
