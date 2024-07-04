@@ -7,7 +7,14 @@ import { User } from '@prisma/client';
 import Link from 'next/link';
 import React from 'react'
 
-const UserInfoCard = ({ user }: { user:User }) => {
+const UserInfoCard = ({ user }: { user: User }) => {
+  
+  const createdAtDate = new Date(user.createdAt)
+  const formattedDate = createdAtDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
   return (
     <div className="p-4 bg-slate-950 rounded-lg shadow-md text-sm flex flex-col gap-4">
       <div className=" flex items-center justify-between foont-md">
@@ -25,40 +32,36 @@ const UserInfoCard = ({ user }: { user:User }) => {
               ? user.name + " " + user.surname
               : user.username}
           </span>
-          <span className="text-sm">{user.username}</span>
+          <span className="text-sm text-gray-200">@{user.username}</span>
         </div>
-        {user.description &&
-          <p>
-            {user.description}
-          </p>
-        }
+        {user.description && <p>{user.description}</p>}
         <div className=" flex items-center gap-2">
           <LocationIcon />
-          {user.city &&
+          {user.city && (
             <span>
               Living in <b>{user.city}</b>
             </span>
-          }
+          )}
         </div>
 
         <div className=" flex items-center gap-2">
           <SchoolIcon />
-          {user.school &&
+          {user.school && (
             <span>
               Went to <b>{user.school}</b>
             </span>
-          }
+          )}
         </div>
         <div className=" flex items-center gap-2">
           <WorkIcon />
-          {user.work &&
+          {user.work && (
             <span>
               Works at <b>{user.work}</b>
             </span>
-          }
+          )}
         </div>
         <div className="flex flex-col gap-2">
-          {user.website &&
+          {user.website && (
             <div className="flex gap-1 items-center">
               <LinkIcon />
               <Link
@@ -68,11 +71,11 @@ const UserInfoCard = ({ user }: { user:User }) => {
                 {user.website}
               </Link>
             </div>
-          }
+          )}
 
           <div className="flex gap-1 items-center">
             <AddEvent />
-            <span className="text-xs">Joined August 2074</span>
+            <span className="text-xs">Joined {formattedDate}</span>
           </div>
         </div>
         <button className="bg-red-500 text-white text-sm rounded-md p-2">
