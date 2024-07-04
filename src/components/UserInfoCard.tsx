@@ -27,40 +27,50 @@ const UserInfoCard = ({ user }: { user:User }) => {
           </span>
           <span className="text-sm">{user.username}</span>
         </div>
-        <p>
-          {user.description}
-        </p>
+        {user.description &&
+          <p>
+            {user.description}
+          </p>
+        }
         <div className=" flex items-center gap-2">
           <LocationIcon />
-          <span>
-            Living in <b>{user.city}</b>
-          </span>
+          {user.city &&
+            <span>
+              Living in <b>{user.city}</b>
+            </span>
+          }
         </div>
 
         <div className=" flex items-center gap-2">
           <SchoolIcon />
-          <span>
-            Went to <b>{user.school}</b>
-          </span>
+          {user.school &&
+            <span>
+              Went to <b>{user.school}</b>
+            </span>
+          }
         </div>
         <div className=" flex items-center gap-2">
           <WorkIcon />
-          <span>
-            Works at <b>{user.work}</b>
-          </span>
+          {user.work &&
+            <span>
+              Works at <b>{user.work}</b>
+            </span>
+          }
         </div>
-        <div className="flex items-center justify-between">
-          <div className="flex gap-1 items-center">
-            <LinkIcon />
-            <Link
-              href="https://albertoramos.dev/"
-              className="text-red-500 font-medium"
-            >
-              {user.website}
-            </Link>
-          </div>
+        <div className="flex flex-col gap-2">
+          {user.website &&
+            <div className="flex gap-1 items-center">
+              <LinkIcon />
+              <Link
+                href="https://albertoramos.dev/"
+                className="text-red-500 font-medium"
+              >
+                {user.website}
+              </Link>
+            </div>
+          }
 
-          <div className="flex gap-1 items-center flex-col">
+          <div className="flex gap-1 items-center">
             <AddEvent />
             <span className="text-xs">Joined August 2074</span>
           </div>
