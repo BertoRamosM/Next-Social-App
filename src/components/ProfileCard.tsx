@@ -2,8 +2,29 @@ import Image from 'next/image';
 import React from 'react'
 import Avatar from "../images/avatar.webp"
 import Land from "../images/land4.webp"
+import { auth } from '@clerk/nextjs/server';
+import prisma from '@/lib/client';
 
-const ProfileCard = () => {
+const ProfileCard = async () => {
+
+  const { userId } = auth()
+  
+  if (!userId) return null;
+
+  const user = await prisma.user.findFirst({
+    where: {
+      id:userId
+    },
+    include: {
+      _count: {
+        select: {
+          followers: true
+        }
+      }
+    }
+  })
+  console.log(user)
+
   return (
     <div className="p-2 bg-white rounded-lg shadow-md text-sm flex flex-col gap-6">
       <div className="h-20 relative">
