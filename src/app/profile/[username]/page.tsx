@@ -5,8 +5,31 @@ import Image from 'next/image';
 import React from 'react'
 import Avatar from "../../../images/avatar.webp"
 import Hero from "../../../images/land3.webp"
+import prisma from '@/lib/client';
+import { notFound } from 'next/navigation';
 
-const ProfilePage = () => {
+const ProfilePage = async ({ params }: { params: { username: string } }) => {
+  
+  const username = params.username;
+
+  const user = await prisma.user.findFirst({
+    where: {
+      username
+    },
+    include: {
+      _count: {
+        select: {
+          followers: true,
+          followings: true,
+          posts: true,
+        }
+      }
+    }
+  })
+
+  //from nextjs navigation
+  if (!user) return notFound()
+  
   return (
     <div className="flex gap-6 pt-6">
       <div className="hidden xl:block w-[20%]">
