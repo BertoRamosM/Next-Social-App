@@ -49,8 +49,8 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
     }
   }
 
-  if(!isBlock) return notFound()
-    
+  if(isBlock) return notFound()
+
   return (
     <div className="flex gap-6 pt-6">
       <div className="hidden xl:block w-[20%]">
@@ -61,32 +61,36 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
           <div className="flex flex-col items-center justify-center">
             <div className="w-full h-64 relative">
               <Image
-                src={Hero}
-                alt="user hero"
+                src={user.cover || "/no-cover.webp"}
+                alt={user.username + "cover"}
                 fill
                 className="object-cover rounded-md"
               />
               <Image
-                src={Avatar}
-                alt="user avatar"
+                src={user.avatar || "/no-avatar.webp"}
+                alt={user.username + "avatar"}
                 width={128}
                 height={128}
-                className="object-cover w-32 h-32 rounded-full absolute left-0 right-0 m-auto -bottom-16 ring-4 ring-white"
+                className="object-cover w-32 h-32 rounded-full absolute left-0 right-0 m-auto -bottom-16 ring-4 ring-green-300"
               />
             </div>
-            <h1 className="mt-20 mb-4 text-2xl font-medium">Ricardo Mars</h1>
+            <h1 className="mt-20 mb-4 text-2xl font-medium">
+              {user.name && user.surname
+                ? user.name + " " + user.surname
+                : user.username}
+            </h1>
             <div className="flex items-center justify-center gap-12 mb-4">
               <div className="flex flex-col items-center">
-                <span className="font-medium">123</span>
+                <span className="font-medium">{user._count.posts}</span>
                 <span className="text-sm">Posts</span>
               </div>
 
               <div className="flex flex-col items-center">
-                <span className="font-medium">1.2K</span>
+                <span className="font-medium">{user._count.followers}</span>
                 <span className="text-sm">Followers</span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="font-medium">1.7K</span>
+                <span className="font-medium">{user._count.followings}</span>
                 <span className="text-sm">Following</span>
               </div>
             </div>
@@ -96,7 +100,7 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
       </div>
 
       <div className="hidden lg:block w-[30%] ">
-        <RightMenu userId="test" />
+        <RightMenu user={user} />
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ const Post = () => {
         </div>
 
         <div className="">
-          <div className="flex items-center gap-4 bg-slate-950 p-2 rounded-xl cursor-pointer">
+          <div className="flex items-center gap-4 bg-slate-800 p-2 rounded-xl cursor-pointer">
             <ShareIcon />
             <span className="text-gray-300">|</span>
             <span className="text-gray-100">

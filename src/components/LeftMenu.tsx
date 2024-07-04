@@ -24,7 +24,7 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           <PostsIcon />
           <span>My posts</span>
         </Link>
-        <hr className="border-t-1 border-green-400 w-36 self-center" />
+        <hr className="border-t-1 border-green-300 w-36 self-center" />
 
         <Link
           href="/"
@@ -33,7 +33,7 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           <ActivityIcon />
           <span>Activity</span>
         </Link>
-        <hr className="border-t-1 border-green-400 w-36 self-center" />
+        <hr className="border-t-1 border-green-300 w-36 self-center" />
 
         <Link
           href="/"
@@ -42,7 +42,7 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           <MarketIcon />
           <span>Marketplace</span>
         </Link>
-        <hr className="border-t-1 border-green-400 w-36 self-center" />
+        <hr className="border-t-1 border-green-300 w-36 self-center" />
 
         <Link
           href="/"
@@ -51,7 +51,7 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           <EventsIcon />
           <span>Events</span>
         </Link>
-        <hr className="border-t-1 border-green-400 w-36 self-center" />
+        <hr className="border-t-1 border-green-300 w-36 self-center" />
 
         <Link
           href="/"
@@ -60,7 +60,7 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           <AlbumsIcon />
           <span>Albums</span>
         </Link>
-        <hr className="border-t-1 border-green-400 w-36 self-center" />
+        <hr className="border-t-1 border-green-300 w-36 self-center" />
 
         <Link
           href="/"
@@ -69,7 +69,7 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           <VideoIcon />
           <span>Videos</span>
         </Link>
-        <hr className="border-t-1 border-green-400 w-36 self-center" />
+        <hr className="border-t-1 border-green-300 w-36 self-center" />
 
         <Link
           href="/"
@@ -78,7 +78,7 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           <NewsIcon />
           <span>News</span>
         </Link>
-        <hr className="border-t-1 border-green-400 w-36 self-center" />
+        <hr className="border-t-1 border-green-300 w-36 self-center" />
 
         <Link
           href="/"
@@ -87,7 +87,7 @@ const LeftMenu = ({type}:{type:'home'|'profile'}) => {
           <CourseIcon />
           <span>Courses</span>
         </Link>
-        <hr className="border-t-1 border-green-400 w-36 self-center" />
+        <hr className="border-t-1 border-green-300 w-36 self-center" />
 
         <Link
           href="/"

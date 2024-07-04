@@ -28,7 +28,7 @@ const ProfileCard = async () => {
   if(!user) return null
 
   return (
-    <div className="p-2 bg-white rounded-lg shadow-md text-sm flex flex-col gap-6">
+    <div className="p-2 bg-slate-950 text-white rounded-lg shadow-md text-sm flex flex-col gap-6">
       <div className="h-20 relative">
         <Image
           src={user?.cover || '/no-cover.webp' }

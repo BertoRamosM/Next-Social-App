@@ -29,14 +29,14 @@ const Birdthdays = () => {
         <div className="flex justify-end gap-1">
           <Link
             href=""
-            className="bg-red-500 text-black text-xs py-1 rounded-md px-2"
+            className="bg-red-500 text-white text-xs py-1 rounded-md px-2"
           >
             Celebrate
           </Link>
         </div>
       </div>
 
-      <div className="flex bg-green-400 gap-4 text-xs justify-center items-center p-4 rounded-lg">
+      <div className="flex bg-green-300 gap-4 text-xs justify-center items-center p-4 rounded-lg">
         <div>
           <CakeIcon />
         </div>

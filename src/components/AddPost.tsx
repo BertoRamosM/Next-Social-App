@@ -15,7 +15,7 @@ const AddPost = () => {
  
 
   return (
-    <div className="p-4 bg-white shadow-md rounded-lg flex gap-4 justify-between text-sm">
+    <div className="p-4 bg-slate-950 text-white shadow-md rounded-lg flex gap-4 justify-between text-sm">
       <Image
         src={Avatar}
         alt="user avatar"
@@ -25,12 +25,12 @@ const AddPost = () => {
       />
 
       <div className="flex-1">
-        <form className="flex gap-4" action="">
+        <form className="flex gap-4 " action="">
           <textarea
             name="desc"
             id="desc"
             placeholder="What's on your mind?"
-            className="flex-1 bg-slate-100 rounded-lg p-2"
+            className="flex-1 bg-transparent border-2 border-white/30 rounded-lg p-2"
           ></textarea>
           <Image
             src={Emoji}
@@ -39,7 +39,9 @@ const AddPost = () => {
             height={20}
             className="w-5 h-5 cursor-pointer self-end rounded-full"
           />
-          <button className="bg-red-500 text-white p-2 h-1/2 rounded-lg hover:opacity-75 self-center">Send</button>
+          <button className="bg-red-500 text-white p-2 h-1/2 rounded-lg hover:opacity-75 self-center">
+            Send
+          </button>
         </form>
 
         <div className="flex items-center gap-4 mt-4 text-gray-400 flex-wrap">

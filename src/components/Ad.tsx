@@ -42,7 +42,7 @@ const Ad = ({size}: {size: 'sm' | 'md' | 'lg' }) => {
           100% Mars slug, Taste Out of This World!
         </p>
 
-        <button className="bg-gray-200 text-gray-600 p-2 text-xs rounded-lg">
+        <button className="bg-green-300 text-gray-900 p-2 text-xs rounded-lg">
           Buy now!
         </button>
       </div>
