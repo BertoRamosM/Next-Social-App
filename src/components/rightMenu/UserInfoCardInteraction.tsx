@@ -2,7 +2,7 @@
 
 interface UserInfoCardInteractionProps {
   userId: string;
-  currentUserId: string;
+  currentUserId: string | any;
   isUserBlocked: boolean;
   isFollowing: boolean;
   isFollowingSent: boolean;
@@ -16,14 +16,22 @@ const UserInfoCardInteraction: React.FC<UserInfoCardInteractionProps> = ({
   isFollowingSent,
 }) => {
   return (
-    <div>
-      <button className="bg-red-500 text-white text-sm rounded-md p-2">
-        Follow
-      </button>
-      <span className="text-green-400 self-end text-xs cursor-pointer">
-        Block User
-      </span>
-    </div>
+    <>
+      <form action="">
+        <button className="w-full bg-red-500 text-green-100 text-sm rounded-md p-2">
+          {isFollowing
+            ? "Following"
+            : isFollowingSent
+            ? "Follow Request Sent"
+            : "Follow"}
+        </button>
+      </form>
+      <form action="" className="self-end">
+        <span className="text-red-400 text-xs cursor-pointer">
+          {isUserBlocked ? "Unblock User" : "Block User"}
+        </span>
+      </form>
+    </>
   );
 };
 
