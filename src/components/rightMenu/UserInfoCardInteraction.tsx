@@ -26,6 +26,7 @@ const UserInfoCardInteraction: React.FC<UserInfoCardInteractionProps> = ({
   })
 
   const follow = async () => {
+    switchOptimisticFollow('')
     try {
       await switchFollow(userId)
       setUserState(prev => ({
