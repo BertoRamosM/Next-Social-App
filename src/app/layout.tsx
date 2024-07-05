@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${inter.className}`}>
+        <body className={`${inter.className} overflow-x-hidden`}>
           <div className="px-4 bg-slate-950 text-white md:px-8 lg:px-16 xl:px-32 2xl:px-48">
             <Navbar />
           </div>
