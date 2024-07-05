@@ -1,17 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import Land1 from "../../images/land1.webp"
 
-import Land2 from "../../images/land2.webp";
-
-import Land3 from "../../images/land3.webp";
-
-import Land4 from "../../images/land4.webp"
-
-import Land5 from "../../images/land5.webp"
-
-import Land6 from "../../images/land6.webp";
 import { User } from '@prisma/client';
 import prisma from '@/lib/client';
 
@@ -43,14 +33,14 @@ const UserMediaCard = async ({ user }: { user: User }) => {
       {postsWithMedia.length ? postsWithMedia.map(post => (
         <div className="relative w-1/5 h-24" key={post.id}>
           <Image
-            src={Land1}
+            src={post.img!}
             alt="media user"
             fill
             className="object-cover rounded-md"
           />
         </div>
       )) :
-          'No media found'
+          'No media posted yet'
   }
       </div>
     </div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Martial1 from "../../images/Martial1.webp";
 import Dots from "@/app/icons/Dots";
-import Land1 from "../../images/land1.webp";
+import Land1 from "../../images/land2.webp";
 import Thumb from "@/app/icons/Thumb";
 import Comment from "@/app/icons/Comment";
 import ShareIcon from "@/app/icons/ShareIcon";
