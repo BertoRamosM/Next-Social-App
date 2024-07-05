@@ -5,7 +5,6 @@ import { useOptimistic, useState } from "react";
 
 interface UserInfoCardInteractionProps {
   userId: string;
-  currentUserId: string | any;
   isUserBlocked: boolean;
   isFollowing: boolean;
   isFollowingSent: boolean;
@@ -13,7 +12,6 @@ interface UserInfoCardInteractionProps {
 
 const UserInfoCardInteraction: React.FC<UserInfoCardInteractionProps> = ({
   userId,
-  currentUserId,
   isUserBlocked,
   isFollowing,
   isFollowingSent,

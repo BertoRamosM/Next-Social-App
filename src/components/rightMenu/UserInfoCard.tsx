@@ -9,6 +9,7 @@ import { User } from '@prisma/client';
 import Link from 'next/link';
 import React from 'react'
 import UserInfoCardInteraction from './UserInfoCardInteraction';
+import UpdateUser from './UpdateUser';
 
 const UserInfoCard = async ({ user }: { user: User }) => {
   
@@ -58,9 +59,13 @@ const UserInfoCard = async ({ user }: { user: User }) => {
     <div className="p-4 bg-slate-950 rounded-lg shadow-md text-sm flex flex-col gap-4">
       <div className=" flex items-center justify-between foont-md">
         <span className="text-gray-100">User Information</span>
-        <Link href="" className="text-red-500 text-xs">
+        {currentUserId === user.id ? (
+        <UpdateUser />
+        ) : ( 
+           <Link href="" className="text-red-500 text-xs">
           See all
-        </Link>
+        </Link>)}
+      
       </div>
 
       <div className="flex flex-col gap-4 text-gray-100">
@@ -119,7 +124,6 @@ const UserInfoCard = async ({ user }: { user: User }) => {
         </div>
         {(currentUserId && currentUserId !== user.id)  &&<UserInfoCardInteraction
           userId={user.id}
-          currentUserId={currentUserId}
           isUserBlocked={isUserBlocked}
           isFollowing={isFollowing}
           isFollowingSent={isFollowingSent}
