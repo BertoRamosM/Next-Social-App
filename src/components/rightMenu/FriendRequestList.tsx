@@ -6,7 +6,7 @@ import Cross from '@/app/icons/Cross'
 import Tick from '@/app/icons/Tick'
 import { FollowRequest, User } from "@prisma/client";
 import Image from 'next/image'
-import React from 'react'
+import React, { useOptimistic, useState } from 'react'
 
 
 type RequestWithUser = FollowRequest & {
@@ -14,6 +14,13 @@ type RequestWithUser = FollowRequest & {
 }
 
 const FriendRequestList = ({ requests }: { requests: RequestWithUser[] }) => {
+
+
+  const [requestState, setRequestState] = useState(requests)
+
+  const [optimisticRequest, removeOptimisticRequest] = useOptimistic(requestState, (state, value: number)=>state.filter(req=>req.id !== value))
+
+
   return (
     <div className="flex flex-col gap-4">
       {requests.map((request) => (
