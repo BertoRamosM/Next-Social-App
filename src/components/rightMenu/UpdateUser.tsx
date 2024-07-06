@@ -92,6 +92,56 @@ const UpdateUser = ({ user }: { user: User }) => {
                   }
                 />
               </div>
+              <div className="flex flex-wrap justify-between gap-4 xl:gap-6">
+                <div className="flex flex-col gap-4">
+                  <label htmlFor="" className="text-xs text-green-300">
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={user.city || "New Red Rock"}
+                    className="bg-transparent border-b border-green-200 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-wrap justify-between gap-4 xl:gap-6">
+                <div className="flex flex-col gap-4">
+                  <label htmlFor="" className="text-xs text-green-300">
+                    School
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={user.school || "Galactic University of Dust"}
+                    className="bg-transparent border-b border-green-200 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-wrap justify-between gap-4 xl:gap-6">
+                <div className="flex flex-col gap-4">
+                  <label htmlFor="" className="text-xs text-green-300">
+                    Work
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={user.work || "Mars Chocolate Inc."}
+                    className="bg-transparent border-b border-green-200 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-wrap justify-between gap-4 xl:gap-6">
+                <div className="flex flex-col gap-4">
+                  <label htmlFor="" className="text-xs text-green-300">
+                    Website
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={user.website || "https://albertoramos.dev/"}
+                    className="bg-transparent border-b border-green-200 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <button className="bg-red-500 p-2 mt-2 rounded-md text-white w-full hover:opacity-80">Update</button>
             </div>
 
             <div
