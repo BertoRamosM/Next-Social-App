@@ -9,7 +9,7 @@ const VideoIcon = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="red"
-      stroke-width="2"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       className="icon icon-tabler icons-tabler-outline icon-tabler-video"

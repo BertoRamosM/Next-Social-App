@@ -9,6 +9,8 @@ import { useState } from "react";
 
 const UpdateUser = ({ user }: any) => {
   const [isOpen, setIsOpen] = useState(false);
+    const [cover, setCover] = useState<any>(false);
+
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -31,23 +33,23 @@ const UpdateUser = ({ user }: any) => {
       {isOpen && (
         <div className="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-40 py-12">
           <form
-            action={updateProfile}
-            className="p-12 bg-slate-800 rounded-lg shadow-md flex flex-col gap-2 w-full md:w-1/2 xl:w-1/3 relative"
+            action={(formData)=>updateProfile(formData, cover?.secure_url)}
+            className="p-12 bg-slate-800 rounded-lg shadow-md flex flex-col gap-1 w-full md:w-1/2 xl:w-1/3 relative"
           >
-            <h1 className="text-3xl">Update Profile</h1>
+            <h1 className="text-xl">Update Profile</h1>
 
             <div className="mt-4 text-xs text-green-300">
               Use the header profile avatar to change the avatar or username
             </div>
 
-            <CldUploadWidget uploadPreset="marsecho">
+            <CldUploadWidget uploadPreset="marsecho" onSuccess={(result)=> setCover(result.info)}>
               {({ open }) => {
                 return (
-                  <div className="flex flex-col gap-2 my-4"
+                  <div className="flex flex-col gap-1 my-4"
                   onClick={()=>open()}>
                     <label className="text-white text-xs">Cover Pictrue</label>
 
-                    <div className="flex items-center gap-2 cursor-pointer">
+                    <div className="flex items-center gap-1 cursor-pointer">
                       <Image
                         src={user.cover || "/no-cover.webp"}
                         alt="user cover picture"
@@ -65,7 +67,7 @@ const UpdateUser = ({ user }: any) => {
             </CldUploadWidget>
 
             <div className="flex flex-wrap justify-between gap-4">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   First name
                 </label>
@@ -77,7 +79,7 @@ const UpdateUser = ({ user }: any) => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   Surname
                 </label>
@@ -89,7 +91,7 @@ const UpdateUser = ({ user }: any) => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2 w-full">
+              <div className="flex flex-col gap-1 w-full">
                 <label htmlFor="" className="text-xs text-white">
                   Description
                 </label>
@@ -104,7 +106,7 @@ const UpdateUser = ({ user }: any) => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   City
                 </label>
@@ -116,7 +118,7 @@ const UpdateUser = ({ user }: any) => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   School
                 </label>
@@ -128,7 +130,7 @@ const UpdateUser = ({ user }: any) => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   Work
                 </label>
@@ -140,7 +142,7 @@ const UpdateUser = ({ user }: any) => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   Website
                 </label>
