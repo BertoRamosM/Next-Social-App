@@ -51,7 +51,7 @@ const PostComponent = ({ post }: { post: PostType }) => {
         commentNumber={post._count.comments}
       />
 
-      <Comments />
+      <Comments postId={post.id}/>
     </div>
   );
 };
