@@ -3,11 +3,11 @@
 import { updateProfile } from "@/lib/actions";
 import Image from "next/image";
 import { useState } from "react";
-import Toast from "@/components/Toast";
+
+
 
 const UpdateUser = ({ user }: any) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -17,25 +17,9 @@ const UpdateUser = ({ user }: any) => {
     setIsOpen(false);
   };
 
-  const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    const result = await updateProfile(formData);
 
-    if (result.status === "success") {
-      setToastMessage("Profile updated successfully");
-    } else {
-      setToastMessage(
-        `Failed to update profile: ${
-          result.message || JSON.stringify(result.errors)
-        }`
-      );
-    }
 
-    setIsOpen(false);
-    setTimeout(() => setToastMessage(""), 3000); // Hide toast after 3 seconds
-  };
 
   return (
     <div>
@@ -46,11 +30,12 @@ const UpdateUser = ({ user }: any) => {
         Update
       </span>
 
+      
       {isOpen && (
         <div className="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-40 py-12">
           <form
+            action={updateProfile}
             className="p-12 bg-slate-800 rounded-lg shadow-md flex flex-col gap-2 w-full md:w-1/2 xl:w-1/3 relative"
-            onSubmit={handleUpdate}
           >
             <h1 className="text-3xl">Update Profile</h1>
 
@@ -59,7 +44,7 @@ const UpdateUser = ({ user }: any) => {
             </div>
 
             <div className="flex flex-col gap-2 my-4">
-              <label className="text-white text-xs">Cover Picture</label>
+              <label className="text-white text-xs">Cover Pictrue</label>
 
               <div className="flex items-center gap-2 cursor-pointer">
                 <Image
@@ -75,7 +60,7 @@ const UpdateUser = ({ user }: any) => {
 
             <div className="flex flex-wrap justify-between gap-4">
               <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-xs text-white">
+                <label htmlFor="" className="text-xs text-white">
                   First name
                 </label>
                 <input
@@ -87,7 +72,7 @@ const UpdateUser = ({ user }: any) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="surname" className="text-xs text-white">
+                <label htmlFor="" className="text-xs text-white">
                   Surname
                 </label>
                 <input
@@ -99,7 +84,7 @@ const UpdateUser = ({ user }: any) => {
               </div>
 
               <div className="flex flex-col gap-2 w-full">
-                <label htmlFor="description" className="text-xs text-white">
+                <label htmlFor="" className="text-xs text-white">
                   Description
                 </label>
                 <input
@@ -114,7 +99,7 @@ const UpdateUser = ({ user }: any) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="city" className="text-xs text-white">
+                <label htmlFor="" className="text-xs text-white">
                   City
                 </label>
                 <input
@@ -126,7 +111,7 @@ const UpdateUser = ({ user }: any) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="school" className="text-xs text-white">
+                <label htmlFor="" className="text-xs text-white">
                   School
                 </label>
                 <input
@@ -138,7 +123,7 @@ const UpdateUser = ({ user }: any) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="work" className="text-xs text-white">
+                <label htmlFor="" className="text-xs text-white">
                   Work
                 </label>
                 <input
@@ -150,7 +135,7 @@ const UpdateUser = ({ user }: any) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="website" className="text-xs text-white">
+                <label htmlFor="" className="text-xs text-white">
                   Website
                 </label>
                 <input
@@ -162,8 +147,8 @@ const UpdateUser = ({ user }: any) => {
               </div>
 
               <button
-                type="submit"
                 className="bg-red-500 p-2 mt-2 rounded-md text-white w-full hover:opacity-80"
+               
               >
                 Update
               </button>
@@ -177,10 +162,6 @@ const UpdateUser = ({ user }: any) => {
             </div>
           </form>
         </div>
-      )}
-
-      {toastMessage && (
-        <Toast message={toastMessage} onClose={() => setToastMessage("")} />
       )}
     </div>
   );
