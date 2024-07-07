@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useState } from "react";
 import Toast from "@/components/Toast";
 
-const UpdateUser = ({ user }:any) => {
+const UpdateUser = ({ user }: any) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -17,11 +17,22 @@ const UpdateUser = ({ user }:any) => {
     setIsOpen(false);
   };
 
-  const handleUpdate = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Perform update action, then show toast
+
+    const formData = new FormData(e.currentTarget);
+    const result = await updateProfile(formData);
+
+    if (result.success) {
+      setToastMessage("Profile updated successfully");
+    } else {
+      setToastMessage(
+        "Failed to update profile: " + JSON.stringify(result.errors)
+      );
+    }
+
     setIsOpen(false);
-    setShowToast(true);
+    setTimeout(() => setToastMessage(""), 3000); // Hide toast after 3 seconds
   };
 
   return (
@@ -36,7 +47,6 @@ const UpdateUser = ({ user }:any) => {
       {isOpen && (
         <div className="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-40 py-12">
           <form
-            action={updateProfile}
             className="p-12 bg-slate-800 rounded-lg shadow-md flex flex-col gap-2 w-full md:w-1/2 xl:w-1/3 relative"
             onSubmit={handleUpdate}
           >
@@ -167,11 +177,8 @@ const UpdateUser = ({ user }:any) => {
         </div>
       )}
 
-      {showToast && (
-        <Toast
-          message="Profile updated successfully"
-          onClose={() => setShowToast(false)}
-        />
+      {toastMessage && (
+        <Toast message={toastMessage} onClose={() => setToastMessage("")} />
       )}
     </div>
   );

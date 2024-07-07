@@ -171,7 +171,13 @@ export const updateProfile = async (formData: FormData) => {
 
   const validatedFields = Profile.safeParse(fields)
 
-  if (!validatedFields.success) {
-    console.log(validatedFields.error.flatten().fieldErrors)
+   if (!validatedFields.success) {
+     return {
+       success: false,
+       errors: validatedFields.error.flatten().fieldErrors,
+     };
   }
+  
+    return { success: true };
+
 };

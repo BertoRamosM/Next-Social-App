@@ -36,7 +36,7 @@ const Birdthdays = () => {
         </div>
       </div>
 
-      <div className="flex bg-green-300 gap-4 text-xs justify-center items-center p-4 rounded-lg">
+      <div className="flex bg-green-100 gap-4 text-xs justify-center items-center p-4 rounded-lg">
         <div>
           <CakeIcon />
         </div>
