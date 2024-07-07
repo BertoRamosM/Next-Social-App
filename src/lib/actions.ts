@@ -162,7 +162,6 @@ export const updateProfile = async(
   const { formData, cover } = payload;
 
   const fields = Object.fromEntries(formData);
-  console.log(fields)
 
   const filteredFields = Object.fromEntries(
     Object.entries(fields).filter(([_, value]) => value !=="")
@@ -179,10 +178,10 @@ export const updateProfile = async(
     website: z.string().max(60).optional(),
   });
 
-  const validatedFields = Profile.safeParse({cover, ...filteredFields});
+  const validatedFields = Profile.safeParse({...filteredFields, cover});
 
   if (!validatedFields.success) {
-    console.log(validatedFields.error.flatten)
+    console.log(validatedFields.error.flatten())
     return {success:false, error:true}
     
   }

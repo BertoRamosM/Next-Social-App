@@ -3,13 +3,21 @@
 import { updateProfile } from "@/lib/actions";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useActionState, useState } from "react";
+import UpdateButton from "./UpdateButton";
 
 
 
 const UpdateUser = ({ user }: any) => {
   const [isOpen, setIsOpen] = useState(false);
-    const [cover, setCover] = useState<any>(false);
+  const [cover, setCover] = useState<any>(false);
+
+    const [state, formAction] = useActionState(updateProfile, {success: false, error:false})
+  
+  const router = useRouter()
+
+
 
 
   const handleOpen = () => {
@@ -18,9 +26,10 @@ const UpdateUser = ({ user }: any) => {
 
   const handleClose = () => {
     setIsOpen(false);
+    state.success && router.refresh()
   };
 
-  const [state, formAction] = useActionState(updateProfile, {success: false, error:false})
+
 
   return (
     <div>
@@ -31,11 +40,12 @@ const UpdateUser = ({ user }: any) => {
         Update
       </span>
 
-      
       {isOpen && (
         <div className="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-40 py-12">
           <form
-            action={(formData)=>formAction({formData, cover:  cover?.secure_url || ""})}
+            action={(formData) =>
+              formAction({ formData, cover: cover?.secure_url || "" })
+            }
             className="p-12 bg-slate-800 rounded-lg shadow-md flex flex-col gap-1 w-full md:w-1/2 xl:w-1/3 relative"
           >
             <h1 className="text-xl">Update Profile</h1>
@@ -44,11 +54,16 @@ const UpdateUser = ({ user }: any) => {
               Use the header profile avatar to change the avatar or username
             </div>
 
-            <CldUploadWidget uploadPreset="marsecho" onSuccess={(result)=> setCover(result.info)}>
+            <CldUploadWidget
+              uploadPreset="marsecho"
+              onSuccess={(result) => setCover(result.info)}
+            >
               {({ open }) => {
                 return (
-                  <div className="flex flex-col gap-1 my-4"
-                  onClick={()=>open()}>
+                  <div
+                    className="flex flex-col gap-1 my-4"
+                    onClick={() => open()}
+                  >
                     <label className="text-white text-xs">Cover Pictrue</label>
 
                     <div className="flex items-center gap-1 cursor-pointer">
@@ -80,7 +95,6 @@ const UpdateUser = ({ user }: any) => {
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
                 />
               </div>
-
               <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   Surname
@@ -92,7 +106,6 @@ const UpdateUser = ({ user }: any) => {
                   className="bg-transparent border-b border-green-200 focus:outline-none flex-1 p-2 text-xs"
                 />
               </div>
-
               <div className="flex flex-col gap-1 w-full">
                 <label htmlFor="" className="text-xs text-white">
                   Description
@@ -107,7 +120,6 @@ const UpdateUser = ({ user }: any) => {
                   }
                 />
               </div>
-
               <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   City
@@ -119,7 +131,6 @@ const UpdateUser = ({ user }: any) => {
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
                 />
               </div>
-
               <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   School
@@ -131,7 +142,6 @@ const UpdateUser = ({ user }: any) => {
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
                 />
               </div>
-
               <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   Work
@@ -143,7 +153,6 @@ const UpdateUser = ({ user }: any) => {
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
                 />
               </div>
-
               <div className="flex flex-col gap-1">
                 <label htmlFor="" className="text-xs text-white">
                   Website
@@ -155,15 +164,13 @@ const UpdateUser = ({ user }: any) => {
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
                 />
               </div>
-
-              <button
-                className="bg-red-500 p-2 mt-2 rounded-md text-white w-full hover:opacity-80"
-               
-              >
-                Update
-              </button>
-              {state.success && <span className="text-green-500">Profile Updated</span>}
-              {state.error && <span className="text-orange-400">Something went wrong</span>}
+              <UpdateButton />
+              {state.success && (
+                <span className="text-green-300">Profile Updated</span>
+              )}
+              {state.error && (
+                <span className="text-orange-400">Something went wrong</span>
+              )}
             </div>
 
             <div
