@@ -23,11 +23,13 @@ const UpdateUser = ({ user }: any) => {
     const formData = new FormData(e.currentTarget);
     const result = await updateProfile(formData);
 
-    if (result.success) {
+    if (result.status === "success") {
       setToastMessage("Profile updated successfully");
     } else {
       setToastMessage(
-        "Failed to update profile: " + JSON.stringify(result.errors)
+        `Failed to update profile: ${
+          result.message || JSON.stringify(result.errors)
+        }`
       );
     }
 
