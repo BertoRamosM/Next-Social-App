@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const UpdateUser = ({ user }: any) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [secondOpen, setSecondOpen] = useState(false)
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -13,6 +14,15 @@ const UpdateUser = ({ user }: any) => {
 
   const handleClose = () => {
     setIsOpen(false);
+  };
+
+  const openSecond = () => {
+    setSecondOpen(true)
+  }
+
+  const closeBoth = () => {
+    setSecondOpen(false);
+    setIsOpen(false)
   };
 
   return (
@@ -24,8 +34,22 @@ const UpdateUser = ({ user }: any) => {
         Update
       </span>
 
-      {isOpen && (
+      {secondOpen && (
         <div className="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-50 py-12">
+          <div className="p-12 bg-slate-800 flex flex-col gap-8">
+            Profile Updated correctly
+            <button
+              onClick={closeBoth}
+              className="bg-red-500 p-2 mt-2 rounded-md text-white w-full hover:opacity-80"
+            >
+              Accept
+            </button>
+          </div>
+        </div>
+      )}
+
+      {isOpen && (
+        <div className="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-40 py-12">
           <form
             action={updateProfile}
             className="p-12 bg-slate-800 rounded-lg shadow-md flex flex-col gap-2 w-full md:w-1/2 xl:w-1/3 relative"
@@ -81,7 +105,7 @@ const UpdateUser = ({ user }: any) => {
                   Description
                 </label>
                 <input
-                  name="desc"
+                  name="description"
                   className="bg-transparent border-b border-green-200 focus:outline-none flex-1 p-2 text-xs"
                   type="text"
                   placeholder={
@@ -139,7 +163,10 @@ const UpdateUser = ({ user }: any) => {
                 />
               </div>
 
-              <button className="bg-red-500 p-2 mt-2 rounded-md text-white w-full hover:opacity-80">
+              <button
+                className="bg-red-500 p-2 mt-2 rounded-md text-white w-full hover:opacity-80"
+                onClick={openSecond}
+              >
                 Update
               </button>
             </div>
