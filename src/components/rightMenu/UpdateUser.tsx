@@ -1,22 +1,19 @@
-'use client'
+"use client";
 
-import { User } from "@prisma/client"
-import Image from "next/image"
-import { useState } from "react"
+import { updateProfile } from "@/lib/actions";
+import Image from "next/image";
+import { useState } from "react";
 
+const UpdateUser = ({ user }: any) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-
-const UpdateUser = ({ user }: { user: User }) => {
-  
-  const [isOpen, setIsOpen] = useState(false)
-
-   const handleOpen = () => {
-     setIsOpen(true);
-   };
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
 
   const handleClose = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <div>
@@ -28,9 +25,9 @@ const UpdateUser = ({ user }: { user: User }) => {
       </span>
 
       {isOpen && (
-        <div className="absolute h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-50 py-12">
+        <div className="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-50 py-12">
           <form
-            action=""
+            action={updateProfile}
             className="p-12 bg-slate-800 rounded-lg shadow-md flex flex-col gap-2 w-full md:w-1/2 xl:w-1/3 relative"
           >
             <h1 className="text-3xl">Update Profile</h1>
@@ -40,7 +37,7 @@ const UpdateUser = ({ user }: { user: User }) => {
             </div>
 
             <div className="flex flex-col gap-2 my-4">
-              <label className="text-green-300 text-xs">Cover Pictrue</label>
+              <label className="text-white text-xs">Cover Pictrue</label>
 
               <div className="flex items-center gap-2 cursor-pointer">
                 <Image
@@ -56,10 +53,11 @@ const UpdateUser = ({ user }: { user: User }) => {
 
             <div className="flex flex-wrap justify-between gap-4">
               <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-xs text-green-300">
+                <label htmlFor="" className="text-xs text-white">
                   First name
                 </label>
                 <input
+                  name="name"
                   type="text"
                   placeholder={user.name || "David"}
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
@@ -67,10 +65,11 @@ const UpdateUser = ({ user }: { user: User }) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-xs text-green-300">
+                <label htmlFor="" className="text-xs text-white">
                   Surname
                 </label>
                 <input
+                  name="surnname"
                   type="text"
                   placeholder={user.surname || "Bowie"}
                   className="bg-transparent border-b border-green-200 focus:outline-none flex-1 p-2 text-xs"
@@ -78,10 +77,11 @@ const UpdateUser = ({ user }: { user: User }) => {
               </div>
 
               <div className="flex flex-col gap-2 w-full">
-                <label htmlFor="" className="text-xs text-green-300">
+                <label htmlFor="" className="text-xs text-white">
                   Description
                 </label>
                 <input
+                  name="desc"
                   className="bg-transparent border-b border-green-200 focus:outline-none flex-1 p-2 text-xs"
                   type="text"
                   placeholder={
@@ -92,10 +92,11 @@ const UpdateUser = ({ user }: { user: User }) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-xs text-green-300">
+                <label htmlFor="" className="text-xs text-white">
                   City
                 </label>
                 <input
+                  name="city"
                   type="text"
                   placeholder={user.city || "New Red Rock"}
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
@@ -103,10 +104,11 @@ const UpdateUser = ({ user }: { user: User }) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-xs text-green-300">
+                <label htmlFor="" className="text-xs text-white">
                   School
                 </label>
                 <input
+                  name="school"
                   type="text"
                   placeholder={user.school || "Galactic University of Dust"}
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
@@ -114,10 +116,11 @@ const UpdateUser = ({ user }: { user: User }) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-xs text-green-300">
+                <label htmlFor="" className="text-xs text-white">
                   Work
                 </label>
                 <input
+                  name="work"
                   type="text"
                   placeholder={user.work || "Mars Chocolate Inc."}
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
@@ -125,10 +128,11 @@ const UpdateUser = ({ user }: { user: User }) => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-xs text-green-300">
+                <label htmlFor="" className="text-xs text-white">
                   Website
                 </label>
                 <input
+                  name="website"
                   type="text"
                   placeholder={user.website || "https://albertoramos.dev/"}
                   className="bg-transparent border-b border-green-200 focus:outline-none p-2 text-xs"
@@ -141,7 +145,7 @@ const UpdateUser = ({ user }: { user: User }) => {
             </div>
 
             <div
-              className="absolute cursor-pointer text-lg right-5 top-5 text-white"
+              className="absolute cursor-pointer text-4xl right-5 top-5 text-white"
               onClick={handleClose}
             >
               x
@@ -151,6 +155,6 @@ const UpdateUser = ({ user }: { user: User }) => {
       )}
     </div>
   );
-}
+};
 
-export default UpdateUser
+export default UpdateUser;
