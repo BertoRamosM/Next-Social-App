@@ -154,7 +154,13 @@ export const declineFollowRequest = async (userId: string) => {
   }
 };
 
-export const updateProfile = async (formData: FormData, cover:string) => {
+export const updateProfile = async(
+  prevState: { success: boolean, error: boolean },
+  payload: { formData: FormData, cover: string }
+) => {
+
+  const { formData, cover } = payload;
+
   const fields = Object.fromEntries(formData);
   console.log(fields)
 
@@ -177,13 +183,13 @@ export const updateProfile = async (formData: FormData, cover:string) => {
 
   if (!validatedFields.success) {
     console.log(validatedFields.error.flatten)
-    return "error"
+    return {success:false, error:true}
     
   }
   const { userId } = auth()
   
   if (!userId) {
-    return "User not authenticated"
+    return {success:false, error:true}
   }
 
 
@@ -195,8 +201,9 @@ export const updateProfile = async (formData: FormData, cover:string) => {
       data: validatedFields.data,
 
     })
+     return { success: true, error: false };
   } catch (error) {
     console.log(error)
-    throw new Error("Something went wrong")
+     return { success: false, error: true };
   }
 };

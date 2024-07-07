@@ -3,7 +3,7 @@
 import { updateProfile } from "@/lib/actions";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
-import { useState } from "react";
+import { useActionState, useState } from "react";
 
 
 
@@ -20,6 +20,8 @@ const UpdateUser = ({ user }: any) => {
     setIsOpen(false);
   };
 
+  const [state, formAction] = useActionState(updateProfile, {success: false, error:false})
+
   return (
     <div>
       <span
@@ -33,7 +35,7 @@ const UpdateUser = ({ user }: any) => {
       {isOpen && (
         <div className="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-65 flex items-center justify-center z-40 py-12">
           <form
-            action={(formData)=>updateProfile(formData, cover?.secure_url)}
+            action={(formData)=>formAction({formData, cover:  cover?.secure_url || ""})}
             className="p-12 bg-slate-800 rounded-lg shadow-md flex flex-col gap-1 w-full md:w-1/2 xl:w-1/3 relative"
           >
             <h1 className="text-xl">Update Profile</h1>
@@ -160,6 +162,8 @@ const UpdateUser = ({ user }: any) => {
               >
                 Update
               </button>
+              {state.success && <span className="text-green-500">Profile Updated</span>}
+              {state.error && <span className="text-orange-400">Something went wrong</span>}
             </div>
 
             <div
