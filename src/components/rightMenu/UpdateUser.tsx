@@ -1,6 +1,7 @@
 "use client";
 
 import { updateProfile } from "@/lib/actions";
+import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -16,10 +17,6 @@ const UpdateUser = ({ user }: any) => {
   const handleClose = () => {
     setIsOpen(false);
   };
-
-
-
-
 
   return (
     <div>
@@ -43,20 +40,29 @@ const UpdateUser = ({ user }: any) => {
               Use the header profile avatar to change the avatar or username
             </div>
 
-            <div className="flex flex-col gap-2 my-4">
-              <label className="text-white text-xs">Cover Pictrue</label>
+            <CldUploadWidget uploadPreset="marsecho">
+              {({ open }) => {
+                return (
+                  <div className="flex flex-col gap-2 my-4"
+                  onClick={()=>open()}>
+                    <label className="text-white text-xs">Cover Pictrue</label>
 
-              <div className="flex items-center gap-2 cursor-pointer">
-                <Image
-                  src={user.cover || "/no-cover.webp"}
-                  alt="user cover picture"
-                  width={48}
-                  height={32}
-                  className="w-12 h-8 rounded-md object-cover"
-                />
-                <span className="text-xs underline text-red-500">Change</span>
-              </div>
-            </div>
+                    <div className="flex items-center gap-2 cursor-pointer">
+                      <Image
+                        src={user.cover || "/no-cover.webp"}
+                        alt="user cover picture"
+                        width={48}
+                        height={32}
+                        className="w-12 h-8 rounded-md object-cover"
+                      />
+                      <span className="text-xs underline text-red-500">
+                        Change
+                      </span>
+                    </div>
+                  </div>
+                );
+              }}
+            </CldUploadWidget>
 
             <div className="flex flex-wrap justify-between gap-4">
               <div className="flex flex-col gap-2">
