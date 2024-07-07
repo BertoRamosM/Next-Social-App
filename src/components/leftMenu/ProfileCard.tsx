@@ -3,6 +3,7 @@ import React from 'react'
 import Avatar from "../../images/avatar.webp"
 import { auth } from '@clerk/nextjs/server';
 import prisma from '@/lib/client';
+import Link from 'next/link';
 
 const ProfileCard = async () => {
 
@@ -27,8 +28,8 @@ const ProfileCard = async () => {
   if(!user) return null
 
   return (
-    <div className="p-2 bg-slate-950 text-white rounded-lg shadow-md text-sm flex flex-col gap-6">
-      <div className="h-20 relative">
+    <div className="p-4 bg-slate-950 text-white rounded-lg shadow-md text-sm flex flex-col gap-6">
+      <Link className="h-20 relative" href={`/profile/${user.username}`}>
         <Image
           src={user?.cover || '/no-cover.webp' }
           alt="user banner"
@@ -42,7 +43,7 @@ const ProfileCard = async () => {
           height={48}
           className="rounded-full w-12 h-12 absolute left-0 right-0 m-auto -bottom-6 ring-1 ring-white z-10 object-cover"
         />
-      </div>
+      </Link>
       <div className="h-20 flex flex-col gap-2 items-center">
         <span className="font-semibold">{(user.name && user.surname) ? user.name + " " + user.surname : user.username }</span>
         <div className="flex items-center gap-4">

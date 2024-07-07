@@ -7,39 +7,44 @@ import Thumb from "@/app/icons/Thumb";
 import Comment from "@/app/icons/Comment";
 import ShareIcon from "@/app/icons/ShareIcon";
 import Comments from "./Comments";
+import { Post, User } from "@prisma/client";
+
+type PostType = Post & {
+  user: User;
+  likes: { userId: string }[];
+  _count: { comments: number };
+};
 
 
-
-const Post = () => {
+const PostComponent = ({ post }: { post: PostType }) => {
   return (
     <div className=" flex flex-col gap-4 pb-8">
       <div className=" flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
-            src={Martial1}
+            src={post.user.avatar || "/no-avatar.webp"}
             height={40}
             width={40}
             alt="user image"
             className="w-10 h-10 rounded-full"
           />
-          <span className="font-medium">Rowan Martian</span>
+          <span className="font-medium">
+            {post.user.name && post.user.surname ? post.user.name + " " + post.user.surname : post.user.username}
+          </span>
         </div>
         <Dots />
       </div>
 
-      <div className="w-full min-h-96 relative">
+     {post.img &&  <div className="w-full min-h-96 relative">
         <Image
-          src={Land1}
+          src={post.img}
           alt="scene image"
           fill
           className="rounded-md object-cover"
         />
-      </div>
+      </div>}
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-        laboriosam in nostrum dolorum, unde, reiciendis laborum omnis qui iure
-        molestiae officiis distinctio, dignissimos debitis minima itaque dolor?
-        Optio, porro dolorem.
+        {post.desc}
       </p>
 
       <div className="flex items-center justify-between text-sm gap-4 my-4">
@@ -76,4 +81,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default PostComponent;

@@ -36,13 +36,13 @@ const Birdthdays = () => {
         </div>
       </div>
 
-      <div className="flex bg-green-100 gap-4 text-xs justify-center items-center p-4 rounded-lg">
+      <div className="flex bg-gray-700 gap-4 text-xs justify-center items-center p-4 rounded-lg">
         <div>
           <CakeIcon />
         </div>
         <Link href="" className='flex flex-col gap-2 justify-center'>
-          <span className='font-bold text-black'>Upcoming Birthdays</span>
-          <span className='text-gray-700'>See other 16 upcoming Birthdays</span>
+          <span className='font-bold text-white'>Upcoming Birthdays</span>
+          <span className='text-white'>See other 16 upcoming Birthdays</span>
         </Link>
       </div>
     </div>
