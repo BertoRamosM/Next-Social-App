@@ -12,6 +12,7 @@ import prisma from "@/lib/client";
 import { useUser } from "@clerk/nextjs";
 import { CldUploadWidget } from "next-cloudinary";
 import AddPostButton from "./AddPostButton";
+import { addPost } from "@/lib/actions";
 
 
 const AddPost = () => {
@@ -34,7 +35,7 @@ const AddPost = () => {
       />
 
       <div className="flex-1">
-        <form className="flex gap-4 " action="">
+        <form className="flex gap-4 " action={(formData)=>addPost(formData, img?.secure_url || "")}>
           <textarea
             name="desc"
             id="desc"
