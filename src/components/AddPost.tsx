@@ -11,6 +11,7 @@ import AddEvent from "@/app/icons/AddEvent";
 import prisma from "@/lib/client";
 import { useUser } from "@clerk/nextjs";
 import { CldUploadWidget } from "next-cloudinary";
+import AddPostButton from "./AddPostButton";
 
 
 const AddPost = () => {
@@ -41,33 +42,39 @@ const AddPost = () => {
             className="flex-1 bg-transparent border-2 border-white/30 rounded-lg p-2"
             onChange={(e) => setDesc(e.target.value)}
           ></textarea>
-          <Image
-            src={Emoji}
-            alt="Emoji"
-            width={20}
-            height={20}
-            className="w-5 h-5 cursor-pointer self-end rounded-full"
-          />
-          <button className="bg-red-500 text-white p-2 h-1/2 rounded-lg hover:opacity-75 self-center">
-            Send
-          </button>
+
+          
+           {/*  <Image
+              src={Emoji}
+              alt="Emoji"
+              width={20}
+              height={20}
+              className="w-5 h-5 cursor-pointer self-end rounded-full"
+            /> */}
+            <AddPostButton />
+          
         </form>
 
         <div className="flex items-center gap-4 mt-4 text-gray-400 flex-wrap">
           <CldUploadWidget
             uploadPreset="marsecho"
-            onSuccess={(result) => setImg(result.info)}
+            onSuccess={(result, { widget }) => {
+              setImg(result.info);
+              widget.close();
+            }}
           >
             {({ open }) => {
               return (
-                <div className="flex items-center gap-2 cursor-pointer">
+                <div
+                  className="flex items-center gap-2 cursor-pointer"
+                  onClick={() => open()}
+                >
                   <AddImage />
                   Photo
                 </div>
               );
             }}
           </CldUploadWidget>
-         
 
           <div className="flex items-center gap-2 cursor-pointer">
             <AddVideo />
