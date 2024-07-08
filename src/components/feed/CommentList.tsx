@@ -6,6 +6,9 @@ import { Comment, User } from "@prisma/client";
 import Image from "next/image";
 import { useOptimistic, useState } from "react";
 type CommentWithUser = Comment & { user: User };
+import Emoji from "../../images/emoji.webp"
+import Dots from "@/app/icons/Dots";
+import Thumb from "@/app/icons/Thumb";
 
 const CommentList = ({
   comments,
@@ -56,7 +59,7 @@ const CommentList = ({
   return (
     <>
       {user && (
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 bg-transparent bg-slate-800 pb-6 border-b-2 border-gray-600">
           <Image
             src={user.imageUrl || "noAvatar.png"}
             alt=""
@@ -66,20 +69,20 @@ const CommentList = ({
           />
           <form
             action={add}
-            className="flex-1 flex items-center justify-between bg-slate-100 rounded-xl text-sm px-6 py-2 w-full"
+            className="flex-1 flex items-center justify-between rounded-xl text-sm px-6 py-2 w-full bg-slate-800"
           >
             <input
               type="text"
               placeholder="Write a comment..."
-              className="bg-transparent outline-none flex-1"
+              className=" outline-none flex-1 text-white bg-slate-800"
               onChange={(e) => setDesc(e.target.value)}
             />
             <Image
-              src="/emoji.png"
+              src={Emoji}
               alt=""
               width={16}
               height={16}
-              className="cursor-pointer"
+              className="cursor-pointer rounded-full"
             />
           </form>
         </div>
@@ -106,13 +109,7 @@ const CommentList = ({
               <p>{comment.desc}</p>
               <div className="flex items-center gap-8 text-xs text-gray-500 mt-2">
                 <div className="flex items-center gap-4">
-                  <Image
-                    src="/like.png"
-                    alt=""
-                    width={12}
-                    height={12}
-                    className="cursor-pointer w-4 h-4"
-                  />
+                  <Thumb />
                   <span className="text-gray-300">|</span>
                   <span className="text-gray-500">0 Likes</span>
                 </div>
@@ -120,13 +117,9 @@ const CommentList = ({
               </div>
             </div>
             {/* ICON */}
-            <Image
-              src="/more.png"
-              alt=""
-              width={16}
-              height={16}
-              className="cursor-pointer w-4 h-4"
-            ></Image>
+            <div className="cursor-pointer">
+              <Dots />
+            </div>
           </div>
         ))}
       </div>
