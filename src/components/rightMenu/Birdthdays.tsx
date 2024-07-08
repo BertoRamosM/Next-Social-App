@@ -23,7 +23,7 @@ const Birdthdays = () => {
             height={40}
             className="rounded-full object-cover w-10 h-10"
           />
-          <span className="font-semibold">Ricky Garcia</span>
+          <span className="font-semibold">Pumuki</span>
         </div>
 
         <div className="flex justify-end gap-1">
