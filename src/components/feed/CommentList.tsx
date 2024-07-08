@@ -77,13 +77,13 @@ const CommentList = ({
               className=" outline-none flex-1 text-white bg-slate-800"
               onChange={(e) => setDesc(e.target.value)}
             />
-            <Image
+           {/*  <Image
               src={Emoji}
               alt=""
               width={16}
               height={16}
               className="cursor-pointer rounded-full"
-            />
+            /> */}
           </form>
         </div>
       )}
