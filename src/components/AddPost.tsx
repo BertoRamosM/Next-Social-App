@@ -35,7 +35,10 @@ const AddPost = () => {
       />
 
       <div className="flex-1">
-        <form className="flex gap-4 " action={(formData)=>addPost(formData, img?.secure_url || "")}>
+        <form
+          className="flex gap-4 "
+          action={(formData) => addPost(formData, img?.secure_url || "")}
+        >
           <textarea
             name="desc"
             id="desc"
@@ -44,16 +47,14 @@ const AddPost = () => {
             onChange={(e) => setDesc(e.target.value)}
           ></textarea>
 
-          
-           {/*  <Image
+          {/*  <Image
               src={Emoji}
               alt="Emoji"
               width={20}
               height={20}
               className="w-5 h-5 cursor-pointer self-end rounded-full"
             /> */}
-            <AddPostButton />
-          
+          <AddPostButton />
         </form>
 
         <div className="flex items-center gap-4 mt-4 text-gray-400 flex-wrap">
@@ -77,7 +78,19 @@ const AddPost = () => {
             }}
           </CldUploadWidget>
 
-          <div className="flex items-center gap-2 cursor-pointer">
+          {img && (
+            <div className="mt-4">
+              <Image
+                src={img.secure_url}
+                alt="Uploaded image"
+                width={50}
+                height={50}
+                className="rounded-lg"
+              />
+            </div>
+          )}
+
+          {/*   <div className="flex items-center gap-2 cursor-pointer">
             <AddVideo />
             Video
           </div>
@@ -85,7 +98,7 @@ const AddPost = () => {
           <div className="flex items-center gap-2 cursor-pointer">
             <AddEvent />
             Event
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
