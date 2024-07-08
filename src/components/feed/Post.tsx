@@ -5,6 +5,7 @@ import Comments from "./Comments";
 import { Post, User } from "@prisma/client";
 import PostInteraction from "./PostInteraction";
 import PostInfo from "../PostInfo";
+import { auth } from "@clerk/nextjs/server";
 
 type PostType = Post & {
   user: User;
@@ -14,6 +15,8 @@ type PostType = Post & {
 
 
 const PostComponent = ({ post }: { post: PostType }) => {
+      const { userId } = auth();
+
   return (
     <div className=" flex flex-col gap-4 pb-8">
       <div className=" flex items-center justify-between">
@@ -33,7 +36,7 @@ const PostComponent = ({ post }: { post: PostType }) => {
         </div>
 
         <div className="" >
-          <PostInfo postId={post.id} />
+          {userId === post.user.id && <PostInfo postId={post.id} />}
         </div>
       </div>
 
