@@ -100,11 +100,11 @@ const StoryList = ({
           key={story.id}
         >
           <Image
-            src={story.user.avatar || "/no-avatar.webp"}
+             src={story.img || "/no-avatar.webp"}
             alt="User"
             width={80}
             height={80}
-            className="w-20 h-20 rounded-full ring-2 ring-red-500"
+            className="w-20 h-20 rounded-full ring-2 ring-red-500 object-cover"
           />
           <span className="font-medium ">
             {story.user.name || story.user.username}
