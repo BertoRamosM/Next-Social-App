@@ -5,9 +5,33 @@ import Martial1 from "../images/Martial1.webp"
 import Martial2 from "../images/Martial2.webp";
 import Martial3 from "../images/Martial3.webp";
 import Martial4 from "../images/Martial4.webp";
+import prisma from '@/lib/client';
+import { auth } from '@clerk/nextjs/server';
 
 
-const Stories = () => {
+const Stories = async () => {
+  const { userId: currentUserId } = auth();
+
+  if (!currentUserId) return null
+  
+    const stories = await prisma.story.findMany({
+      where: {
+        expiresAt: {
+          gt: new Date(),
+        },
+        OR: [
+          {
+            user: {
+              followers: {
+                some: {
+                  followerId: currentUserId,
+                },
+              },
+            },
+          },
+        ],
+      },
+    });
   return (
     <div className="p-4 bg-slate-950 text-white rounded-lg shadow-md overflow-scroll text-xs scrollbar-hide">
       <div className="flex gap-8 w-max">

@@ -30,7 +30,10 @@ const PostComponent = ({ post }: { post: PostType }) => {
               : post.user.username}
           </span>
         </div>
-        <Dots />
+
+        <div className="">
+          <Dots />
+        </div>
       </div>
 
       {post.img && (
@@ -51,7 +54,7 @@ const PostComponent = ({ post }: { post: PostType }) => {
         commentNumber={post._count.comments}
       />
 
-      <Comments postId={post.id}/>
+      <Comments postId={post.id} />
     </div>
   );
 };
