@@ -1,9 +1,10 @@
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import Dots from "@/app/icons/Dots";
 import Comments from "./Comments";
 import { Post, User } from "@prisma/client";
 import PostInteraction from "./PostInteraction";
+import PostInfo from "../PostInfo";
 
 type PostType = Post & {
   user: User;
@@ -31,8 +32,8 @@ const PostComponent = ({ post }: { post: PostType }) => {
           </span>
         </div>
 
-        <div className="">
-          <Dots />
+        <div className="" >
+          <PostInfo postId={post.id} />
         </div>
       </div>
 
@@ -48,13 +49,15 @@ const PostComponent = ({ post }: { post: PostType }) => {
       )}
       <p>{post.desc}</p>
 
-      <PostInteraction
-        postId={post.id}
-        likes={post.likes.map((like) => like.userId)}
-        commentNumber={post._count.comments}
-      />
+      <Suspense fallback="loading...">
+        <PostInteraction
+          postId={post.id}
+          likes={post.likes.map((like) => like.userId)}
+          commentNumber={post._count.comments}
+        />
 
-      <Comments postId={post.id} />
+        <Comments postId={post.id} />
+      </Suspense>
     </div>
   );
 };
